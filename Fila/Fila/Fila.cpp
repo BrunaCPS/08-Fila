@@ -84,16 +84,37 @@ void insere()
 		return;
 	}
 
+	NO* aux = fim;
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (inicio == NULL) {
+		inicio = novo;
+		fim = novo;
+		cout << "Primeiro elemento foi inserido!\n";
+	}
+	else {
+		fim->prox = novo;
+		fim = novo;
+	}
+
+	cout << "Elemento inserido na fila!" << endl;
 
 }
 
 void remove()
 {
-
+	if (inicio == NULL) {
+		cout << "Fila vazia!" << endl;
+		return;
+	}
+	else {
+		NO* aux = inicio;
+		cout << "Primeiro elemento da lista que foi removido foi o: " << inicio->valor << endl;
+		inicio = inicio->prox;
+		free(aux);
+	}
 
 
 }
